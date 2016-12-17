@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top top-nav-collapse" role="navigation">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a class="page-scroll" href="#least-squares">Least Squares Regression</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#k-nearest-neighbors">K-Nearest Neighbors Classification</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- LeastSquares Regression Section -->
+    <section id="least-squares" class="least-squares-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Least Squares Regression</h1>
+                    {% if least_squares_form %}
+                        {{ form_start(least_squares_form) }}
+                        {{ form_widget(least_squares_form) }}
+                        <input type="submit" class="btn btn-primary" value="Predict"/>
+                        {{ form_end(least_squares_form) }}
+                    {% endif %}
+                    {% if least_squares_result %}
+                        <h1>Result</h1>
+                        <h2>{{ least_squares_result }}</h2>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- K-Nearest Neighbors Classification Section -->
+    <section id="k-nearest-neighbors" class="k-nearest-neighbors-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>K-Nearest Neighbors Classification</h1>
+                    {% if knearest_neighbors_form %}
+                        {{ form_start(knearest_neighbors_form) }}
+                        {{ form_widget(knearest_neighbors_form) }}
+                        <input type="submit" class="btn btn-primary" value="Predict"/>
+                        {{ form_end(knearest_neighbors_form) }}
+                    {% endif %}
+                    {% if knearest_neighbors_result %}
+                        <h1>Result</h1>
+                        <h2>{{ knearest_neighbors_result }}</h2>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
